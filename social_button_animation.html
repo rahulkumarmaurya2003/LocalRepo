@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Icon Button</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .social-icon-button {
+            position: relative;
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .icon span {
+            font-size: 24px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .expanded-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+        }
+        .expanded-icons a{
+            text-decoration: none;
+        }
+
+        .expanded-icons .icon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #555;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        .expanded-icons .icon.facebook {
+            background-color: #3b5998;
+        }
+
+        .expanded-icons .icon.twitter {
+            background-color: #00aced;
+        }
+
+        .expanded-icons .icon.instagram {
+            background-color: #e4405f;
+        }
+
+        .expanded-icons .icon.linkedin {
+            background-color: #0077b5;
+        }
+
+        .expanded-icons .icon.youtube {
+            background-color: #ff0000;
+        }
+
+        .expanded-icons .icon.pinterest {
+            background-color: #cb2027;
+        }
+
+        .social-icon-button.active .icon span {
+            transform: rotate(45deg);
+        }
+
+        .social-icon-button.active .expanded-icons .icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+     
+        .social-icon-button.active .expanded-icons .icon:nth-child(1) {
+            transform: translate(calc(100px * cos(0deg)), calc(100px * sin(0deg)));
+        }
+
+        .social-icon-button.active .expanded-icons .icon:nth-child(2) {
+            transform: translate(calc(100px * cos(60deg)), calc(100px * sin(60deg)));
+        }
+
+        .social-icon-button.active .expanded-icons .icon:nth-child(3) {
+            transform: translate(calc(100px * cos(120deg)), calc(100px * sin(120deg)));
+        }
+
+        .social-icon-button.active .expanded-icons .icon:nth-child(4) {
+            transform: translate(calc(100px * cos(180deg)), calc(100px * sin(180deg)));
+        }
+
+        .social-icon-button.active .expanded-icons .icon:nth-child(5) {
+            transform: translate(calc(100px * cos(240deg)), calc(100px * sin(240deg)));
+        }
+
+        .social-icon-button.active .expanded-icons .icon:nth-child(6) {
+            transform: translate(calc(100px * cos(300deg)), calc(100px * sin(300deg)));
+        }
+    </style>
+</head>
+
+<body>
+    <div class="social-icon-button">
+        <div class="icon" id="icon">
+            <span>click me</span>
+        </div>
+        <div class="expanded-icons" id="expanded-icons">
+            <a href="#" class="icon facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="icon twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="icon instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="icon linkedin"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="icon youtube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="icon pinterest"><i class="fa-brands fa-pinterest"></i></a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const icon = document.getElementById('icon');
+            const expandedIcons = document.getElementById('expanded-icons');
+            const socialIconButton = document.querySelector('.social-icon-button');
+
+            icon.addEventListener('click', function () {
+                socialIconButton.classList.toggle('active');
+            });
+        });
+
+    </script>
+</body>
+
+</html>
